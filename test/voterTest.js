@@ -89,6 +89,9 @@ contract('Voting', accounts => {
 
             const proposalData = await this.voting.getOneProposal(0, {from: firstVoter});
             expect(proposalData.description).to.be.equal(proposalDescription);
+
+            const secondProposalData = await this.voting.getOneProposal(1, {from: firstVoter});
+            expect(secondProposalData.description).to.be.equal(proposalSecondDescription);
         })
 
         it('should emit an event after vote', async () => {
